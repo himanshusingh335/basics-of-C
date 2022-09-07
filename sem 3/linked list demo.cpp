@@ -1,119 +1,119 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
 struct Node
 {
 	int data;
-	struct Node*next;
-}*ptr,*temp;
+	struct Node *next;
+} * ptr, *temp;
 
-struct node*head=NULL;
+struct Node *head = NULL;
 
-Node*createNode(int newData)
+Node *createNode(int newData)
 {
-	ptr = new Node; //or ptr=malloc(sizeof(Node));
-	ptr->data=NewData;
-	ptr->next=null;
+	ptr = new Node; // or ptr=malloc(sizeof(Node));
+	ptr->data = newData;
+	ptr->next = NULL;
 }
 
-void insertatBegNode(Node*newptr)
+void insertatBegNode(Node *newptr)
 {
-	if (head==null)
+	if (head == NULL)
 	{
-		head=newptr;
+		head = newptr;
 	}
 	else
 	{
-		newptr->next=head;
-		head=newptr;
+		newptr->next = head;
+		head = newptr;
 	}
 }
 
-void insertatEndNode(Node*newptr)
+void insertatEndNode(Node *newptr)
 {
-	if(head==null)
+	if (head == NULL)
 	{
-		head=newptr;
+		head = newptr;
 	}
 	else
 	{
-		temp=head;
-		while(temp->next != null)
+		temp = head;
+		while (temp->next != NULL)
 		{
-			temp=temp->next;
+			temp = temp->next;
 		}
-		temp->next=newptr;
+		temp->next = newptr;
 	}
 }
 
-void insertInMiddle(Node*newptr, int insertafter)
+void insertInMiddle(Node *newptr, int insertafter)
 {
-	if(head==null)
+	if (head == NULL)
 	{
-		head=newptr;
+		head = newptr;
 	}
 	else
 	{
-		temp=head;
-		while(temp->data != insertafter)
+		temp = head;
+		while (temp->data != insertafter)
 		{
-			temp=temp->next;
+			temp = temp->next;
 		}
-		newptr->next=temp->next;
-		temp->next=newptr;
+		newptr->next = temp->next;
+		temp->next = newptr;
 	}
 }
 
 void deleteatEnd()
 {
-	if(head==null)
+	if (head == NULL)
 	{
-		cout<<"List is empty";
+		cout << "List is empty";
 	}
 	else
 	{
-		temp=head;
-		while(temp->next != null)
+		temp = head;
+		while (temp->next != NULL)
 		{
-			ptr=temp;
-			temp=temp->next;
+			ptr = temp;
+			temp = temp->next;
 		}
-		ptr->next=null;
+		ptr->next = NULL;
 		free(temp);
 	}
 }
 
 void deleteMiddle(int notobedeleted)
 {
-		if(head==null)
+	if (head == NULL)
 	{
-		cout<<"List is empty";
+		cout << "List is empty";
 	}
 	else
 	{
-		temp=head;
-		while(temp->data != notobedeleted)
+		temp = head;
+		while (temp->data != notobedeleted)
 		{
-			ptr=temp;
-			temp=temp->next;
+			ptr = temp;
+			temp = temp->next;
 		}
-		ptr->next=temp->next;
-		temp->next=null;
+		ptr->next = temp->next;
+		temp->next = NULL;
 		free(temp);
 	}
 }
 
 void deleteinBeginning()
 {
-	if(head==null)
+	if (head == NULL)
 	{
-		cout<<"List is empty";
+		cout << "List is empty";
 	}
 	else
 	{
-		temp=head;
-		head=temp->next;
+		temp = head;
+		head = temp->next;
 		free(temp);
 	}
 }
